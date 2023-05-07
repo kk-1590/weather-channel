@@ -35,6 +35,7 @@ body{
     display:grid;
     grid-template-columns: repeat(2,1fr);
     grid-template-areas:
+    'search search'
     'current current'
     'hourly hourly'
     'fiveday fiveday'
@@ -51,7 +52,12 @@ body{
 /* styles related to current weather data */
 
 
-
+#search{
+    grid-area: search;
+    font-size: var(--font-large);
+    border-radius: var(--font-regular);
+    padding: var(--spacing-medium);
+}
 
 #current-forecast{
     grid-area: current;
@@ -105,6 +111,41 @@ body{
 
 #five-day-forecast{
     grid-area:fiveday;
+    text-align: center;
+}
+
+#five-day-forecast .five-day-forecast-container {
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.five-day-forecast-container .day-wise-forecast{
+    display:grid;
+    grid-template: auto / repeat(4,1fr);
+    gap:var(--spacing-regular);
+    place-items: center;
+}
+
+.five-day-forecast-container .day-wise-forecast .min-temp{
+    font-size: var(--font-regular);
+    font-weight: var(--font-semibold);
+    opacity:50%;
+}
+
+.five-day-forecast-container .day-wise-forecast .icon{
+    height: 75px;
+    width: 75px;
+}
+
+.five-day-forecast-container .day-wise-forecast .day{
+    text-transform: capitalize;
+    justify-self: start;
+}
+
+.five-day-forecast-container .day-wise-forecast .max-temp{
+    font-size: var(--font-regular);
+    font-weight: var(--font-semibold);
+    justify-self: end;
 }
 
 #feels-like{
